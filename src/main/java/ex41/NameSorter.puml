@@ -1,0 +1,22 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 3 Solution
+ *  Copyright 2021 Jose Gonzalez
+ */
+
+
+@startuml
+'https://plantuml.com/class-diagram
+
+class App
+
+class NameSorter{
+    SortedNames
+    readFile()
+    sortData()
+    printSortedData()
+}
+
+App O--> NameSorter
+
+
+@enduml
