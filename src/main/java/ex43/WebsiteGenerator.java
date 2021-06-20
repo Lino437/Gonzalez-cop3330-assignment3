@@ -38,20 +38,9 @@ import java.util.Scanner;
 public class WebsiteGenerator {
     final static Scanner in = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        String dir = "C:\\Users\\Jose\\IdeaProjects\\PracticeExercisesPart3\\src\\main\\java\\ex43";
-
-        String siteName = scanInput("Site name: ");
-        String author = scanInput("Author: ");
-        boolean jsFile =yesNoInput("Do you want a folder for JavaScript? ");
-        boolean cssFile =yesNoInput("Do you want a folder for CSS? ");
-
-        createSkeletonDirectory(dir, siteName, author, jsFile, cssFile);
-    }
-
     //creating skeleton
-    private static void createSkeletonDirectory(String dir, String siteName, String author, boolean jsFile, boolean cssFile){
-        String path = generateFoldersReturnPath(dir, siteName, jsFile, cssFile);
+    public static void createSkeletonDirectory(String dir, String siteName, String author, boolean jsFile, boolean cssFile){
+        String path = GenerateAllFolders.generateFoldersReturnPath(dir, siteName, jsFile, cssFile);
         String fileName = "index.html";
         generateFile(path,fileName);
         String[] html = htmlText(author,siteName);
@@ -65,42 +54,14 @@ public class WebsiteGenerator {
         };
     }
 
-    //generate all folders
-    private static String generateFoldersReturnPath(String dir, String name, boolean jsFile, boolean cssFile) {
-        dir = dir + "\\" + "website";
-        generateFolder(dir);
-        dir = dir + "\\" + name;
-        generateFolder(dir);
-        if(jsFile){
-            generateFolder(dir + "\\js");
-        }
-        if(cssFile){
-            generateFolder(dir + "\\css");
-        }
-        return dir;
-    }
-
-    //generate folder
-    private static void generateFolder(String dir) {
-        //Instantiate the File class
-        File f1 = new File(dir);
-        //Creating a folder using mkdir() method
-        boolean bool = f1.mkdir();
-        if(bool){
-            System.out.println("Created " + f1.getName() + " folder");
-        }else{
-            System.out.println("Error Found! generating file");
-        }
-    }
-
     //prompt the user
-    private static String scanInput(String prompt){
+    public static String scanInput(String prompt){
         System.out.println(prompt);
         return in.nextLine();
     }
 
     //prompt user yes or no
-    private static boolean yesNoInput(String prompt){
+    public static boolean yesNoInput(String prompt){
         System.out.println(prompt);
         String yesNo = in.nextLine();
         return yesNo.equals("y") || yesNo.equals("Y");

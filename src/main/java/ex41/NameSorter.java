@@ -44,14 +44,6 @@ import java.util.ArrayList;
 
 public class NameSorter {
 
-    public static void main(String[] args) {
-        ArrayList<String> names = readFileStoreInArray("D:\\exercise41_input.txt");
-
-        sortingArray(names);
-
-        printingResultsToFile(names);
-    }
-
     //read from file and store information in an ArrayList
     public static ArrayList<String> readFileStoreInArray(String filepath) {
         ArrayList<String> arr = new ArrayList<>();
@@ -72,13 +64,13 @@ public class NameSorter {
     }
 
     //  sort the array of strings alphabetically
-    private static void sortingArray(ArrayList<String> names) {
+    public static void sortingArray(ArrayList<String> names) {
         Collections.sort(names);
 
     }
 
     //print the results on the new file
-    private static void printingResultsToFile(ArrayList<String> names) {
+    public static void printingResultsToFile(ArrayList<String> names) {
         try {
             FileWriter myWriter = new FileWriter("D:\\exercise41_output.txt");
             myWriter.write("Total of " + names.size() + " names\n");

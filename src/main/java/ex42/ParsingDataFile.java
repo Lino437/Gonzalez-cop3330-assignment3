@@ -40,15 +40,6 @@ import java.util.*;
 
 
 public class ParsingDataFile {
-
-    public static void main(String[] args) {
-        ArrayList<String> data = readFileStoreInArray("D:\\exercise42_input.txt");
-
-        data = separateComma(data);
-
-        printResults(data);
-    }
-
     //get data from file & store data in an arraylist
     public static ArrayList<String> readFileStoreInArray(String filepath) {
         ArrayList<String> arr = new ArrayList<>();
@@ -83,7 +74,7 @@ public class ParsingDataFile {
     }
 
     //printing formatted table to the terminal
-    private static void printResults(ArrayList<String> myList) {
+    public static void printResults(ArrayList<String> myList) {
         int length = myList.size() / 3;
         System.out.printf("%10s %10s %10s\n"
                 , padRight("Last", 10)
