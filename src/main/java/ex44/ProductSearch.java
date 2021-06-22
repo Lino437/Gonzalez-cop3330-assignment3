@@ -36,5 +36,39 @@ If no record is found, prompt again.
 
 package ex44;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import java.io.FileReader;
+import java.util.ArrayList;
+
 public class ProductSearch {
+    //read JSON file stored info in ArrayList
+    public static ArrayList<String> readJSON(String fileName) {
+        JSONParser parser = new JSONParser();
+        ArrayList<String> data= new ArrayList<>();
+
+        try {
+            Object obj = parser.parse(new FileReader(fileName));
+
+            JSONObject jsonObject = (JSONObject) obj;
+
+            JSONArray products = (JSONArray) jsonObject.get("products");
+
+            for (Object product : products) {
+                data.add(product.toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+    //extract variables from ArrayList
+
+
+    //check if name is within array.name
+
+    //print values stored within
+
 }
